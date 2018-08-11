@@ -25,7 +25,7 @@ module.exports = function updater() {
 function initUpdater() {
 
     const {app, autoUpdater, dialog} = electron
-    const feedURL = pkg.config.forge.electronReleaseServer.baseUrl + `/update/${process.platform}/${app.getVersion()}`
+    const feedURL = `http://192.168.31.137:5000/update/${process.platform}/${app.getVersion()}`
     const requestHeaders = {'User-Agent': userAgent}
 
     // exit early on unsupported platforms, e.g. `linux`
