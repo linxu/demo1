@@ -7,9 +7,9 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
+    "make": "electron-forge make --skip-package",
     "publish": "electron-forge publish --target=electron-release-server",
-    "publish2": "electron-forge publish --auth-token=e7e165da98dadce2b7e836278468e1e7abf9b8b7",
+    "publish2": "electron-forge publish --auth-token=1c7985aff0318c3d0c6f79650587eda320b7a055",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
