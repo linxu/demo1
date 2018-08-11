@@ -8,10 +8,12 @@
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish --target=electron-release-server"
+    "publish": "electron-forge publish --target=electron-release-server",
+    "publish2": "electron-forge publish --auth-token=e7e165da98dadce2b7e836278468e1e7abf9b8b7",
+    "lint": "echo \"No linting configured\""
   },
   "keywords": [],
-  "author": "alfred",
+  "author": "linxu",
   "license": "MIT",
   "config": {
     "forge": {
@@ -31,7 +33,7 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "yarn"
+        "packageManager": "npm"
       },
       "electronWinstallerConfig": {
         "name": "demo1"
