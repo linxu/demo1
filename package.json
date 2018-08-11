@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make --targets=win32",
+    "make": "electron-forge make",
     "publish": "electron-forge publish --target=electron-release-server"
   },
   "keywords": [],
