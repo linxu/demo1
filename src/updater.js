@@ -17,7 +17,7 @@ module.exports = function updater() {
     if (isDev) {
         const message = 'update-electron-app config looks good; aborting updates since app is in development mode'
         console.log(message)
-        return
+        //return
     }
     electron.app.on('ready', () => initUpdater())
 }
@@ -25,7 +25,7 @@ module.exports = function updater() {
 function initUpdater() {
 
     const {app, autoUpdater, dialog} = electron
-    const feedURL = pkg.config.forge.electronReleaseServer.baseUrl + `/${process.platform}/${app.getVersion()}`
+    const feedURL = pkg.config.forge.electronReleaseServer.baseUrl + `/update/${process.platform}/${app.getVersion()}`
     const requestHeaders = {'User-Agent': userAgent}
 
     // exit early on unsupported platforms, e.g. `linux`
