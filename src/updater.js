@@ -17,7 +17,7 @@ module.exports = function updater() {
     if (isDev) {
         const message = 'update-electron-app config looks good; aborting updates since app is in development mode'
         console.log(message)
-        //return
+        return
     }
     electron.app.on('ready', () => initUpdater())
 }
