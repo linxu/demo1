@@ -40,9 +40,28 @@
         ]
       },
       "electronWinstallerConfig": {
-        "name": "demo1"
+        "name": "demo1",
+        "loadingGif": "./build/win/install.gif",
+        "setupIcon": "./build/icons/icon.ico"
       },
-      "electronInstallerDMG": {},
+      "electronInstallerDMG": {
+        "background": "./build/mac/install.png",
+        "icon": "./build/icons/icon.icns",
+        "contents": [
+          {
+            "x": 160,
+            "y": 160,
+            "type": "file",
+            "path": "/Users/alfred/dev/github/demo1/out/demo1-darwin-x64/demo1.app"
+          },
+          {
+            "x": 400,
+            "y": 160,
+            "type": "link",
+            "path": "/Applications"
+          }
+        ]
+      },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
