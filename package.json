@@ -9,9 +9,9 @@
     "package": "electron-forge package",
     "package:win": "electron-forge package --arch=ia32,x64 --platform=win32",
     "make": "electron-forge make",
-    "make:win": "electron-forge make --arch=ia32,x64 --targets=squirrel",
+    "make:win": "electron-forge make --arch=ia32,x64 --platform=win32",
     "publish": "electron-forge publish",
-    "publish:win": "electron-forge publish --arch=ia32,x64",
+    "publish:win": "electron-forge publish --arch=ia32,x64 --platform=win32",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],
@@ -44,7 +44,7 @@
       },
       "electronWinstallerConfig": {
         "name": "demo1",
-        "//loadingGif": "./build/win/install.gif",
+        "loadingGif": "./build/win/install.gif",
         "setupIcon": "./build/icons/icon.ico"
       },
       "electronInstallerDMG": {
