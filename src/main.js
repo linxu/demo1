@@ -1,5 +1,7 @@
-const isDev = require('electron-is-dev');
 import {app, BrowserWindow} from 'electron';
+
+const isDev = require('electron-is-dev');
+const pkg = require('../package.json');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -18,13 +20,12 @@ const createWindow = () => {
     });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/views/index.html`);
 
     // Open the DevTools.
     if (isDev) {
         mainWindow.webContents.openDevTools();
     }
-
 
     // Emitted when the window is closed.
     mainWindow.on('closed', () => {
@@ -57,10 +58,8 @@ app.on('activate', () => {
     }
 });
 
-// require('./updater')()
+require('update-electron-app')()
+
 // code. You can also put them in separate files and require them here.
-require('update-electron-app')({
-    repo: 'linxu/demo1',
-})
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.

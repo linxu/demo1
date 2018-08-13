@@ -1,7 +1,7 @@
 const isDev = require('electron-is-dev')
 const os = require('os')
 const {format} = require('util')
-const pkg = require('../package.json')
+const pkg = require('../../package.json')
 const electron = require('electron')
 const userAgent = format(
     '%s/%s (%s: %s)',
