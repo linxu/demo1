@@ -12,6 +12,7 @@
     "make:win": "electron-forge make --arch=ia32,x64 --platform=win32",
     "publish": "electron-forge publish",
     "publish:win": "electron-forge publish --arch=ia32,x64 --platform=win32",
+    "install": "electron-forge install linxu/demo1",
     "lint": "echo \"No linting configured\""
   },
   "keywords": [],

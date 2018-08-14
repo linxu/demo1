@@ -1,4 +1,9 @@
 import cache from "../libs/cache";
+import {ipcRenderer} from 'electron';
+
+ipcRenderer.on('async-message-reply', (event, arg) => {
+    console.log(`async message reply: ${arg}`);
+})
 
 var app = new Vue({
     el: '#app',
@@ -16,7 +21,9 @@ var app = new Vue({
     },
     methods: {
         test: function (event) {
-
+            ipcRenderer.send('async-message', 'test');
+            var msg = ipcRenderer.sendSync('sync-message', 'test');
+            console.log("sync message reply:" + msg);
         }
     }
 })
