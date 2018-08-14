@@ -1,7 +1,6 @@
-import {app, BrowserWindow} from 'electron';
-
-const isDev = require('electron-is-dev');
-const pkg = require('../package.json');
+import {app} from 'electron';
+import * as core from './libs/core';
+import * as win from './libs/win';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -13,21 +12,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 let mainWindow;
 
 const createWindow = () => {
-    // Create the browser window.
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-    });
-
-    // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/views/index.html`);
-
-    // Open the DevTools.
-    if (isDev) {
-        mainWindow.webContents.openDevTools();
-    }
-
-    // Emitted when the window is closed.
+    mainWindow = win.createWindow("Demo", `file://${__dirname}/views/index.html`, 800, 600);
     mainWindow.on('closed', () => {
         // Dereference the window object, usually you would store windows
         // in an array if your app supports multi windows, this is the time
@@ -58,7 +43,7 @@ app.on('activate', () => {
     }
 });
 
-require('update-electron-app')()
+core.checkUpdate();
 
 // code. You can also put them in separate files and require them here.
 // In this file you can include the rest of your app's specific main process
