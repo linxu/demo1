@@ -1,6 +1,8 @@
 import cache from "../../libs/cache";
 import * as app from "../../libs/app";
 
+app.sendCrashReport();
+
 var vm = new Vue({
     el: '#app',
     data: {
