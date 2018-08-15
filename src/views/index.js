@@ -1,8 +1,6 @@
 import cache from "../libs/cache";
 import * as app from "../libs/app";
 
-let WHITE_MINI_TOKEN = "WHITEcGFydG5lcl9pZD14c3MzMUxKbU1RZklzUFM1SkdkRlFPTHNhRHNBU3VIcUlXUTgmc2lnPTc3NTE0N2E1MjI0ZTA1N2VkMGJiZWEwNjhiNTc0ZDg5ZjEyNjE1OGQ6YWRtaW5JZD0yMSZyb2xlPW1pbmkmZXhwaXJlX3RpbWU9MTU2NTg1Njk4NSZhaz14c3MzMUxKbU1RZklzUFM1SkdkRlFPTHNhRHNBU3VIcUlXUTgmY3JlYXRlX3RpbWU9MTUzNDMwMDAzMyZub25jZT0xNTM0MzAwMDMzMTU4MDA";
-
 var vm = new Vue({
     el: '#app',
     data: {
