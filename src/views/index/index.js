@@ -1,5 +1,5 @@
-import cache from "../libs/cache";
-import * as app from "../libs/app";
+import cache from "../../libs/cache";
+import * as app from "../../libs/app";
 
 var vm = new Vue({
     el: '#app',

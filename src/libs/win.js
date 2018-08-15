@@ -1,4 +1,4 @@
-import * as core from './app';
+import * as app from './app';
 import electron from "electron";
 
 export function createWindow(title, url, width, height, isRenderer = false) {
@@ -28,7 +28,69 @@ export function createWindow(title, url, width, height, isRenderer = false) {
         win = null;
     });
     win.loadURL(url);
-    if (core.isDev) {
+    if (app.isDev) {
+        win.webContents.openDevTools();
+    }
+    return win;
+};
+
+export function createWindowBeforeSplash(main, splash) {
+    var mainConfig = {
+        width: 800,
+        height: 600,
+        title: app.pkg.name,
+        url: `file://${__dirname}/../views/index/index.html`
+    }
+    Object.assign(mainConfig, main);
+    var splashConfig = {
+        width: 600,
+        height: 400,
+        time: 3000,
+        url: `file://${__dirname}/../views/splash/splash.html`
+    }
+    Object.assign(splashConfig, splash);
+    let splashScreen = new electron.BrowserWindow({
+        width: splashConfig.width,
+        height: splashConfig.height,
+        show: false,
+        frame: false,
+        center: true
+    });
+    splashScreen.loadURL(splashConfig.url);
+    splashScreen.webContents.on("did-finish-load", function () {
+        splashScreen.show();
+        setTimeout(function () {
+            splashScreen.close();
+            splashScreen = null;
+            win.show();
+        }, splashConfig.time);
+    });
+    let win = new electron.BrowserWindow({
+        title: mainConfig.title,
+        width: mainConfig.width,
+        height: mainConfig.height,
+        show: false
+    });
+    win.webContents.on('crashed', function () {
+        const options = {
+            type: 'info',
+            title: '提示',
+            message: '天呐程序崩溃了',
+            buttons: ['重来', '关闭']
+        }
+        electron.dialog.showMessageBox(options, function (index) {
+            if (index === 0) {
+                win.reload();
+            } else {
+                win.close();
+            }
+        })
+    });
+    win.on('close', function () {
+        win = null;
+    });
+    win.loadURL(mainConfig.url);
+    if (app.isDev) {
         win.webContents.openDevTools();
     }
     return win;

@@ -9,7 +9,7 @@ if (require('electron-squirrel-startup')) {
 let mainWindow;
 
 const createWindow = () => {
-    mainWindow = win.createWindow("Demo", `file://${__dirname}/views/index.html`, 800, 600);
+    mainWindow = win.createWindowBeforeSplash();
 };
 
 application.on('ready', createWindow);
