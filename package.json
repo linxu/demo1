@@ -11,9 +11,7 @@
     "make": "electron-forge make",
     "make:win": "electron-forge make --arch=ia32,x64 --platform=win32",
     "publish": "electron-forge publish",
-    "publish:win": "electron-forge publish --arch=ia32,x64 --platform=win32",
-    "install": "electron-forge install linxu/demo1",
-    "lint": "echo \"No linting configured\""
+    "publish:win": "electron-forge publish --arch=ia32,x64 --platform=win32"
   },
   "keywords": [],
   "author": "linxu",
@@ -84,7 +82,9 @@
     "electron-is-dev": "^0.3.0",
     "update-electron-app": "^1.3.0",
     "electron-json-storage": "^4.1.1",
-    "vue": "^2.5.17"
+    "electron-log": "^2.2.17",
+    "vue": "^2.5.17",
+    "white-web-sdk": "^1.0.6"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

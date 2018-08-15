@@ -1,36 +1,32 @@
-import {app} from 'electron';
-import * as core from './libs/core';
+import {app as application} from 'electron';
+import * as app from './libs/app';
 import * as win from './libs/win';
 
 if (require('electron-squirrel-startup')) {
-    app.quit();
+    application.quit();
 }
 
 let mainWindow;
 
 const createWindow = () => {
     mainWindow = win.createWindow("Demo", `file://${__dirname}/views/index.html`, 800, 600);
-    mainWindow.on('closed', () => {
-        mainWindow = null;
-    });
 };
 
-app.on('ready', createWindow);
+application.on('ready', createWindow);
 
-app.on('window-all-closed', () => {
+application.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit();
+        application.quit();
     }
 });
 
-app.on('activate', () => {
+application.on('activate', () => {
     if (mainWindow === null) {
         createWindow();
     }
 });
 
 //检查更新
-core.checkUpdate();
-
-//加载主进程
-require("./libs/ipc");
+app.checkUpdate();
+//崩溃日志报告
+app.sendCrashReport();

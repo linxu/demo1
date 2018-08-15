@@ -1,11 +1,12 @@
 const storage = require('electron-json-storage');
+import * as app from "./app";
 
 export default class Cache {
     static put(key, value) {
         return new Promise(function (resolve, reject) {
             storage.set(key, value, function (error) {
                 if (error) {
-                    console.log(error);
+                    app.error(error);
                     reject('设置' + key + '出错');
                 } else {
                     resolve();
@@ -18,7 +19,7 @@ export default class Cache {
         return new Promise(function (resolve, reject) {
             storage.get(key, function (error, data) {
                 if (error) {
-                    console.log(error);
+                    app.error(error);
                     reject('获取' + key + '出错');
                 } else {
                     resolve(data);
