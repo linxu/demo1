@@ -1,30 +1,24 @@
-const storage = require('electron-json-storage');
-import * as app from "./app";
+const Store = require('electron-store');
+const store = new Store();
 
 export default class Cache {
     static put(key, value) {
-        return new Promise(function (resolve, reject) {
-            storage.set(key, value, function (error) {
-                if (error) {
-                    app.error(error);
-                    reject('设置' + key + '出错');
-                } else {
-                    resolve();
-                }
-            });
-        });
+        store.set(key, value);
     }
 
-    static get(key) {
-        return new Promise(function (resolve, reject) {
-            storage.get(key, function (error, data) {
-                if (error) {
-                    app.error(error);
-                    reject('获取' + key + '出错');
-                } else {
-                    resolve(data);
-                }
-            });
-        });
+    static get(key, defaultValue) {
+        return store.get(key, defaultValue);
+    }
+
+    static has(key) {
+        return store.has(key);
+    }
+
+    static delete(key) {
+        return store.delete(key);
+    }
+
+    static clear() {
+        return store.clear();
     }
 }

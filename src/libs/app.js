@@ -1,4 +1,5 @@
 import * as cfg from "./config";
+import {app as application} from "electron";
 
 const log = require('electron-log');
 const crashReporter = require('electron').crashReporter;
@@ -21,6 +22,10 @@ export function sendCrashReport() {
             submitURL: cfg.CRASH_URL
         });
     }
+}
+
+export function getUserDataPath() {
+    return application.getPath('userData');
 }
 
 export function info(msg) {

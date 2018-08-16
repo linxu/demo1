@@ -11,11 +11,8 @@ var vm = new Vue({
     mounted: function () {
         cache.put("test", {
             a: '123'
-        }).then(function () {
-            cache.get('test').then(function (data) {
-                app.info(data);
-            })
         });
+        app.info(cache.get('test'));
     },
     methods: {
         test: function (event) {
