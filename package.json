@@ -1,22 +1,22 @@
 {
-  "name": "demo1",
-  "productName": "demo1",
-  "version": "1.0.1",
-  "description": "My Electron application description",
+  "name": "electron-demo",
+  "productName": "electron-demo",
+  "version": "1.0.0",
+  "description": "electron demo",
   "main": "src/main.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "package:win": "electron-forge package --arch=ia32,x64 --platform=win32",
+    "package:win": "electron-forge package --arch=ia32 --platform=win32",
     "make": "electron-forge make",
-    "make:win": "electron-forge make --arch=ia32,x64 --platform=win32",
+    "make:win": "electron-forge make --arch=ia32 --platform=win32",
     "publish": "electron-forge publish",
-    "publish:win": "electron-forge publish --arch=ia32,x64 --platform=win32"
+    "publish:win": "electron-forge publish --arch=ia32 --platform=win32"
   },
   "keywords": [],
   "author": "linxu",
   "license": "MIT",
-  "repository": "linxu/demo1",
+  "repository": "linxu/electron-demo",
   "config": {
     "forge": {
       "make_targets": {
@@ -43,7 +43,7 @@
         ]
       },
       "electronWinstallerConfig": {
-        "name": "demo1",
+        "name": "electron-demo",
         "loadingGif": "./build/win/install.gif",
         "setupIcon": "./build/icons/icon.ico"
       },
@@ -55,7 +55,7 @@
             "x": 160,
             "y": 160,
             "type": "file",
-            "path": "/Users/alfred/dev/github/demo1/out/demo1-darwin-x64/demo1.app"
+            "path": "/Users/alfred/dev/github/electron-demo/out/electron-demo-darwin-x64/electron-demo.app"
           },
           {
             "x": 400,
@@ -69,11 +69,11 @@
       "electronInstallerRedhat": {},
       "github_repository": {
         "owner": "linxu",
-        "name": "demo1"
+        "name": "electron-demo"
       },
       "windowsStoreConfig": {
         "packageName": "",
-        "name": "demo1"
+        "name": "electron-demo"
       }
     }
   },
