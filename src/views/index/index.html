@@ -4,11 +4,26 @@
     <meta charset="utf-8">
     <title></title>
     <script src="../../../node_modules/vue/dist/vue.min.js"></script>
+    <style>
+        #localplayer {
+            border: 1px solid red;
+            width: 150px;
+            height: 100px;
+        }
+
+        #remoteplayer {
+            border: 1px solid blue;
+            width: 150px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
     {{hello}}
     <button @click="test">测试</button>
+    <div id="localplayer"></div>
+    <div id="remoteplayer"></div>
 </div>
 <script src="index.js"></script>
 </body>

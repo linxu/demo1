@@ -28,14 +28,14 @@ export function getUserDataPath() {
     return application.getPath('userData');
 }
 
-export function info(msg) {
+export function info(...msg) {
     log.info(msg);
 }
 
-export function debug(msg) {
+export function debug(...msg) {
     log.debug(msg);
 }
 
-export function error(msg) {
+export function error(...msg) {
     log.error(msg);
 }
