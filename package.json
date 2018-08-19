@@ -18,64 +18,7 @@
   "license": "MIT",
   "repository": "linxu/electron-demo",
   "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "squirrel"
-        ],
-        "darwin": [
-          "zip",
-          "dmg"
-        ],
-        "linux": [
-          "deb",
-          "rpm",
-          "flatpak",
-          "snap"
-        ]
-      },
-      "electronPackagerConfig": {
-        "asar": true,
-        "packageManager": "npm",
-        "icon": "./build/icons/icon",
-        "ignore": [
-          ".idea"
-        ]
-      },
-      "electronWinstallerConfig": {
-        "name": "electron-demo",
-        "loadingGif": "./build/win/install.gif",
-        "setupIcon": "./build/icons/icon.ico"
-      },
-      "electronInstallerDMG": {
-        "background": "./build/mac/install.png",
-        "icon": "./build/icons/icon.icns",
-        "contents": [
-          {
-            "x": 160,
-            "y": 160,
-            "type": "file",
-            "path": "/Users/alfred/dev/github/electron-demo/out/electron-demo-darwin-x64/electron-demo.app"
-          },
-          {
-            "x": 400,
-            "y": 160,
-            "type": "link",
-            "path": "/Applications"
-          }
-        ]
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "linxu",
-        "name": "electron-demo"
-      },
-      "windowsStoreConfig": {
-        "packageName": "",
-        "name": "electron-demo"
-      }
-    }
+    "forge": "./build/config.js"
   },
   "dependencies": {
     "electron-compile": "^6.4.3",
