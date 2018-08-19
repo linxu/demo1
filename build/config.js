@@ -1,4 +1,3 @@
-const log = require('electron-log');
 var path = require('path');
 const pkg = require('../package.json');
 
