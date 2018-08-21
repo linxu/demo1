@@ -39,14 +39,14 @@ export function createWindowBeforeSplash(main, splash) {
         width: 800,
         height: 600,
         title: app.pkg.name,
-        url: `file://${__dirname}/../views/index/index.html`
+        url: `file://${app.getViewsPath()}/index/index.html`
     }
     Object.assign(mainConfig, main);
     var splashConfig = {
         width: 600,
         height: 400,
         time: 3000,
-        url: `file://${__dirname}/../views/splash/splash.html`
+        url: `file://${app.getViewsPath()}/splash/splash.html`
     }
     Object.assign(splashConfig, splash);
     let splashScreen = new electron.BrowserWindow({

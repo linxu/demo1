@@ -2,10 +2,11 @@ import * as cfg from "./config";
 import {app as application} from "electron";
 import {enableLiveReload} from 'electron-compile';
 
+const path = require('path');
 const log = require('electron-log');
 const crashReporter = require('electron').crashReporter;
 
-export const pkg = require('../../package.json');
+export const pkg = require('../../../package.json');
 export const isDev = require('electron-is-dev');
 
 
@@ -36,6 +37,14 @@ export function sendCrashReport() {
 
 export function getUserDataPath() {
     return application.getPath('userData');
+}
+
+export function getViewsPath() {
+    return path.join(__dirname, '../../views');
+}
+
+export function getAssetsPath() {
+    return path.join(__dirname, '../');
 }
 
 export function info(...msg) {

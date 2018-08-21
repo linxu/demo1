@@ -1,6 +1,6 @@
 import {app as application} from 'electron';
-import * as app from './libs/app';
-import * as win from './libs/win';
+import * as app from './assets/js/app';
+import * as win from './assets/js/win';
 
 if (require('electron-squirrel-startup')) {
     application.quit();
