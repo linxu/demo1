@@ -1,11 +1,21 @@
 import * as cfg from "./config";
 import {app as application} from "electron";
+import {enableLiveReload} from 'electron-compile';
 
 const log = require('electron-log');
 const crashReporter = require('electron').crashReporter;
 
 export const pkg = require('../../package.json');
 export const isDev = require('electron-is-dev');
+
+
+export function init() {
+    if (isDev) {
+        enableLiveReload();
+    }
+    checkUpdate();
+    sendCrashReport();
+}
 
 export function checkUpdate() {
     //mac未签名 不启用更新

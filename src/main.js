@@ -26,7 +26,5 @@ application.on('activate', () => {
     }
 });
 
-//检查更新
-app.checkUpdate();
-//崩溃日志报告
-app.sendCrashReport();
+//初始化配置
+app.init();
