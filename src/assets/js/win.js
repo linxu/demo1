@@ -1,14 +1,17 @@
 import * as app from './app';
 import electron from "electron";
 
-export function createWindow(title, url, width, height, isRenderer = false) {
+export function createWindow(main, isRenderer = false) {
+    var mainConfig = {
+        width: 800,
+        height: 600,
+        title: app.pkg.name,
+        url: `file://${app.getViewsPath()}/index/index.html`
+    }
+    Object.assign(mainConfig, main);
     let BrowserWindow = isRenderer ? electron.remote.BrowserWindow : electron.BrowserWindow;
     let dialog = isRenderer ? electron.remote.dialog : electron.dialog;
-    let win = new BrowserWindow({
-        title: title,
-        width: width,
-        height: height,
-    });
+    let win = new BrowserWindow(mainConfig);
     win.webContents.on('crashed', function () {
         const options = {
             type: 'info',
@@ -27,7 +30,7 @@ export function createWindow(title, url, width, height, isRenderer = false) {
     win.on('close', function () {
         win = null;
     });
-    win.loadURL(url);
+    win.loadURL(mainConfig.url);
     if (app.isDev) {
         win.webContents.openDevTools();
     }
@@ -39,7 +42,8 @@ export function createWindowBeforeSplash(main, splash) {
         width: 800,
         height: 600,
         title: app.pkg.name,
-        url: `file://${app.getViewsPath()}/index/index.html`
+        url: `file://${app.getViewsPath()}/index/index.html`,
+        show: false
     }
     Object.assign(mainConfig, main);
     var splashConfig = {
@@ -65,12 +69,7 @@ export function createWindowBeforeSplash(main, splash) {
             win.show();
         }, splashConfig.time);
     });
-    let win = new electron.BrowserWindow({
-        title: mainConfig.title,
-        width: mainConfig.width,
-        height: mainConfig.height,
-        show: false
-    });
+    let win = new electron.BrowserWindow(mainConfig);
     win.webContents.on('crashed', function () {
         const options = {
             type: 'info',

@@ -1,21 +1,21 @@
 import * as app from "../../assets/js/app";
+import * as config from "../../assets/js/config";
 import {deviceManager, QNRTCSession} from 'pili-rtc-web';
 import {WhiteWebSdk} from 'white-web-sdk';
 
 const whiteWebSdk = new WhiteWebSdk();
 var miniToken = 'WHITEcGFydG5lcl9pZD1DYzlFNTJhTVFhUU5TYmlHNWJjbkpmVThTNGlNVXlJVUNwdFAmc2lnPTE3Y2ZiYzg0ZGM5N2FkNDAxZmY1MTM0ODMxYTdhZTE2ZGQ3MTdmZjI6YWRtaW5JZD00JnJvbGU9bWluaSZleHBpcmVfdGltZT0xNTY2MDQwNjk4JmFrPUNjOUU1MmFNUWFRTlNiaUc1YmNuSmZVOFM0aU1VeUlVQ3B0UCZjcmVhdGVfdGltZT0xNTM0NDgzNzQ2Jm5vbmNlPTE1MzQ0ODM3NDYzMzYwMA';
-var url = 'https://cloudcapiv3.herewhite.com/room?token=' + miniToken;
+var url = config.API_WHITE + "?token=" + miniToken;
 
 app.sendCrashReport();
 
 var vm = new Vue({
     el: '#app',
-    data: {
-        hello: 'hello electron!'
-    },
+    data: {},
     mounted: function () {
         const localVideo = document.getElementById('localplayer');
         const remoteVideo = document.getElementById('remoteplayer');
+        const whiteboard = document.getElementById('whiteboard');
         const myRTC = new QNRTCSession();
         myRTC.addListener('user-leave', function (user) {
             app.info('user leave');
@@ -63,10 +63,8 @@ var vm = new Vue({
                 roomToken: json.msg.roomToken,
             });
         }).then(function (room) {
-            room.bindHtmlElement(document.getElementById('whiteboard'));
+            room.bindHtmlElement(whiteboard);
         });
     },
-    methods: {
-
-    }
+    methods: {}
 });
