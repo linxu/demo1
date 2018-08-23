@@ -9,6 +9,14 @@
 </head>
 <body>
 <div id="app">
+    <button @click="joinRoom">加入白板</button>
+    <button @click="leaveRoom">退出白板</button>
+    <button @click="setAppliance('selector')">选择</button>
+    <button @click="setAppliance('pencil')">铅笔</button>
+    <button @click="setAppliance('rectangle')">矩形</button>
+    <button @click="setAppliance('ellipse')">椭圆</button>
+    <button @click="setAppliance('eraser')">橡皮</button>
+    <button @click="setAppliance('text')">文字</button>
     <div id="localplayer"></div>
     <div id="remoteplayer"></div>
     <div id="whiteboard"></div>
