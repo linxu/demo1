@@ -1,11 +1,12 @@
 import * as app from "../../assets/js/app";
-import {deviceManager, QNRTCSession} from 'pili-rtc-web';
+import {deviceManager, log, QNRTCSession} from 'pili-rtc-web';
 import {WhiteWebSdk} from 'white-web-sdk';
 
 const white_room_uuid = "3348777524af4730bf53b86ca46142d4";
 const white_room_token = "WHITEcGFydG5lcl9pZD14c3MzMUxKbU1RZklzUFM1SkdkRlFPTHNhRHNBU3VIcUlXUTgmc2lnPTVhYjZmMTFlMGEzMjc1OWEyN2M2YTUyYzFjNGI3MTUyMzdlZmNhZTk6YWRtaW5JZD0mcm9vbUlkPTMzNDg3Nzc1MjRhZjQ3MzBiZjUzYjg2Y2E0NjE0MmQ0JnRlYW1JZD0zNiZleHBpcmVfdGltZT0xNTY2NTQ4NzQxJmFrPXhzczMxTEptTVFmSXNQUzVKR2RGUU9Mc2FEc0FTdUhxSVdROCZjcmVhdGVfdGltZT0xNTM0OTkxNzg5Jm5vbmNlPTE1MzQ5OTE3ODkyMjMwMCZyb2xlPXB1Ymxpc2hlcg";
 const qn_room_token = "QxZugR8TAhI38AiJ_cptTl3RbzLyca3t-AAiH-Hh:ciuERtjohxEa0as5s3N79LnVPPs=:eyJhcHBJZCI6ImQ4bGs3bDRlZCIsInJvb21OYW1lIjoiaGVsbG8iLCJ1c2VySWQiOiJ0ZXN0MTIzIiwiZXhwaXJlQXQiOjE1MzQ2NzIyOTQwNjMxMzk3NDgsInBlcm1pc3Npb24iOiJ1c2VyIn0=\n";
 
+log.setLevel("disable");
 const whiteWebSdk = new WhiteWebSdk();
 let whiteRoom = null;
 
