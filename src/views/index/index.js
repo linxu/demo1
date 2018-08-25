@@ -49,18 +49,18 @@ var vm = new Vue({
         }).catch(function (e) {
             app.error('join room error!', e);
         });
-        http.post(config.API_WHITE_ROOM_CREATE, {
-            body: {
-                name: 'my whiteboard ' + new Date().getTime()
-            },
-        }).then(function (json) {
-            return whiteWebSdk.joinRoom({
-                uuid: json.msg.room.uuid,
-                roomToken: json.msg.roomToken,
-            });
-        }).then(function (room) {
-            room.bindHtmlElement(whiteboard);
-        });
+        // http.post(config.API_WHITE_ROOM_CREATE, {
+        //     body: {
+        //         name: 'my whiteboard ' + new Date().getTime()
+        //     },
+        // }).then(function (json) {
+        //     return whiteWebSdk.joinRoom({
+        //         uuid: json.msg.room.uuid,
+        //         roomToken: json.msg.roomToken,
+        //     });
+        // }).then(function (room) {
+        //     room.bindHtmlElement(whiteboard);
+        // });
     },
     methods: {
         joinRoom: function () {
