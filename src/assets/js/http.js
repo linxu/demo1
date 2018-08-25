@@ -1,19 +1,20 @@
 import * as app from "./app";
 
 export default class Http {
-    static get(url, callback) {
+    static get(url) {
         return fetch(url, {
             method: 'GET'
         }).then(function (response) {
             return response.json();
         }).then(json => {
-            callback(json);
+            return Promise.resolve(json);
         }).catch(error => {
             app.error('http get error', url, error);
+            return Promise.reject(error);
         });
     }
 
-    static post(url, opts, callback, formData = true) {
+    static post(url, opts, formData = true) {
         var defaults = {
             method: 'POST'
         }
@@ -25,12 +26,13 @@ export default class Http {
             });
             defaults.body = body;
         }
-        fetch(url, defaults).then(response => {
+        return fetch(url, defaults).then(response => {
             return response.json();
         }).then(json => {
-            callback(json);
+            return Promise.resolve(json);
         }).catch(error => {
             app.error('http post error', url, error);
+            return Promise.reject(error);
         });
     }
 

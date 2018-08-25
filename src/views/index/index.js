@@ -1,4 +1,6 @@
 import * as app from "../../assets/js/app";
+import http from "../../assets/js/http";
+import * as config from "../../assets/js/config";
 import {deviceManager, log, QNRTCSession} from 'pili-rtc-web';
 import {WhiteWebSdk} from 'white-web-sdk';
 
@@ -47,18 +49,18 @@ var vm = new Vue({
         }).catch(function (e) {
             app.error('join room error!', e);
         });
-        // http.post(config.API_WHITE_ROOM_CREATE, {
-        //     body: {
-        //         name: 'my whiteboard ' + new Date().getTime()
-        //     },
-        // }, function (json) {
-        //     whiteWebSdk.joinRoom({
-        //         uuid: json.msg.room.uuid,
-        //         roomToken: json.msg.roomToken,
-        //     }).then(function (room) {
-        //         room.bindHtmlElement(whiteboard);
-        //     });
-        // });
+        http.post(config.API_WHITE_ROOM_CREATE, {
+            body: {
+                name: 'my whiteboard ' + new Date().getTime()
+            },
+        }).then(function (json) {
+            return whiteWebSdk.joinRoom({
+                uuid: json.msg.room.uuid,
+                roomToken: json.msg.roomToken,
+            });
+        }).then(function (room) {
+            room.bindHtmlElement(whiteboard);
+        });
     },
     methods: {
         joinRoom: function () {
