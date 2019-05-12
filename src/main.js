@@ -9,11 +9,11 @@ if (require('electron-squirrel-startup')) {
 let mainWindow;
 
 const createWindow = () => {
-    //mainWindow = win.createWindowBeforeSplash();
-    mainWindow = win.createWindow({
+    mainWindow = win.createWindowBeforeSplash();
+    //mainWindow = win.createWindow({
         //url: 'https://app.netease.im/webdemo/education/#/login'
         //url: 'https://demo-rtc.qnsdk.com/'
-    });
+    //});
 };
 
 application.on('ready', createWindow);
