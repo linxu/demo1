@@ -19,7 +19,7 @@ module.exports = {
     },
     electronPackagerConfig: {
         asar: true,
-        packageManager: "npm",
+        packageManager: "yarn",
         icon: "./build/icons/icon",
         ignore: [
             ".idea"
